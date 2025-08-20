@@ -1,0 +1,23 @@
+# Mac
+.DS_Store
+
+# Xcode
+xcuserdata/
+*.xcuserstate
+project.xcworkspace/xcuserdata/
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+
+# Swift Package Manager
+.build/
+Packages/
+Package.pins
+Package.resolved
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
