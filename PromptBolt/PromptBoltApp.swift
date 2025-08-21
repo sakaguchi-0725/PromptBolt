@@ -1,8 +1,13 @@
 //
 //  PromptBoltApp.swift
-//  PromptBolt
 //
-//  Created by Kazuma Sakaguchi on 2025/08/20.
+//  PromptBolt
+//  GitHub: https://github.com/sakaguchi-0725/PromptBolt
+//
+//  Created by Kazuma Sakaguchi on 2025/08/21.
+//
+//  Copyright © 2025 Kazuma Sakaguchi.
+//  Licensed under the MIT License.
 //
 
 import SwiftUI
@@ -10,23 +15,12 @@ import SwiftData
 
 @main
 struct PromptBoltApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    let dataManager = DataManager.shared.production
 
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(sharedModelContainer)
+        .modelContainer(dataManager)
     }
 }
