@@ -18,10 +18,10 @@ final class Prompt {
     var id: UUID
     var title: String
     var content: String
-    var shortcutKey: ShortcutKey?
+    var shortcutKey: ShortcutKey
     var createdAt: Date
     
-    init(title: String, content: String, shortcutKey: ShortcutKey? = nil) {
+    init(title: String, content: String, shortcutKey: ShortcutKey) {
         self.id = UUID()
         self.title = title
         self.content = content

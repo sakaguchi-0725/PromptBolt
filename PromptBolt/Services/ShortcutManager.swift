@@ -92,11 +92,12 @@ final class ShortcutManager {
     /// - Parameter shortcutKey: The custom key combination structure
     /// - Returns: A HotKey instance if conversion is successful, nil if the key is invalid
     private func convertToHotKey(_ shortcutKey: ShortcutKey) -> HotKey? {
-        guard let key = convertCharacterKeyToKey(shortcutKey.mainKey) else {
+        guard let characterKey = shortcutKey.characterKey,
+              let key = convertCharacterKeyToKey(characterKey) else {
             return nil
         }
         
-        let modifiers = convertModifierKeysToFlags(shortcutKey.modifierKeys)
+        let modifiers = convertModifierKeysToFlags(shortcutKey.modifiers)
         
         return HotKey(key: key, modifiers: modifiers)
     }

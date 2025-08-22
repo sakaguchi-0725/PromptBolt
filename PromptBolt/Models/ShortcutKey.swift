@@ -10,12 +10,23 @@
 //  Licensed under the MIT License.
 //
 
-struct ShortcutKey: Codable {
-    let modifierKeys: [ModifierKey]
-    let mainKey: CharacterKey
+struct ShortcutKey: Codable, Equatable {
+    let modifierKeys: [UInt32]
+    let mainKey: UInt32
+}
+
+extension ShortcutKey {
+    var modifiers: [ModifierKey] {
+        modifierKeys.compactMap { ModifierKey(rawValue: $0) }
+    }
+    
+    var characterKey: CharacterKey? {
+        CharacterKey(rawValue: mainKey)
+    }
     
     var displayString: String {
-        let modifierString = modifierKeys.map { $0.label }.joined()
-        return "\(modifierString)\(mainKey.label)"
+        let modifierString = modifiers.map { $0.label }.joined()
+        let keyString = characterKey?.label ?? ""
+        return "\(modifierString)\(keyString)"
     }
 }
