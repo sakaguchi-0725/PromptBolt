@@ -38,3 +38,47 @@ final class DataManager {
     
     static let shared = DataManager()
 }
+
+extension DataManager {
+    @MainActor
+    static func previewContainer() -> ModelContainer {
+        let container = DataManager.shared.testing
+        let context = container.mainContext
+        
+        // サンプルデータを作成
+        let sampleShortcut1 = ShortcutKey(
+            modifierKeys: [ModifierKey.command.rawValue], 
+            mainKey: CharacterKey.c.rawValue
+        )
+        let sampleShortcut2 = ShortcutKey(
+            modifierKeys: [ModifierKey.command.rawValue, ModifierKey.shift.rawValue], 
+            mainKey: CharacterKey.v.rawValue
+        )
+        let sampleShortcut3 = ShortcutKey(
+            modifierKeys: [ModifierKey.command.rawValue, ModifierKey.option.rawValue], 
+            mainKey: CharacterKey.p.rawValue
+        )
+        
+        let prompt1 = Prompt(
+            title: "Hello World", 
+            content: "Hello, World!", 
+            shortcutKey: sampleShortcut1
+        )
+        let prompt2 = Prompt(
+            title: "Sample Text", 
+            content: "This is a sample text for testing.", 
+            shortcutKey: sampleShortcut2
+        )
+        let prompt3 = Prompt(
+            title: "Long Sample", 
+            content: "This is a very long sample text that demonstrates how the preview looks with longer content.", 
+            shortcutKey: sampleShortcut3
+        )
+        
+        context.insert(prompt1)
+        context.insert(prompt2)
+        context.insert(prompt3)
+        
+        return container
+    }
+}
