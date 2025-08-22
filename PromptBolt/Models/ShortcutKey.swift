@@ -11,6 +11,11 @@
 //
 
 struct ShortcutKey: Codable {
-    let modifierKeys: [UInt32]
-    let mainKey: UInt32
+    let modifierKeys: [ModifierKey]
+    let mainKey: CharacterKey
+    
+    var displayString: String {
+        let modifierString = modifierKeys.map { $0.label }.joined()
+        return "\(modifierString)\(mainKey.label)"
+    }
 }
