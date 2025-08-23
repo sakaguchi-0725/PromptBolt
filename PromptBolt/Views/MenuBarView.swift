@@ -14,17 +14,17 @@ import SwiftUI
 import SwiftData
 
 struct MenuBarView: View {
-    @Query(sort: \Prompt.createdAt) private var prompts: [Prompt]
+    @Environment(PromptState.self) private var promptState
     
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
-            if prompts.isEmpty {
+            if promptState.prompts.isEmpty {
                 Text("No prompts available")
                     .foregroundColor(Color(.secondaryLabelColor))
                     .padding(.vertical, 6)
                     .padding(.horizontal, 8)
             } else {
-                ForEach(prompts.prefix(5)) { prompt in
+                ForEach(promptState.prompts.prefix(5)) { prompt in
                     HStack {
                         Text(prompt.title)
                         Spacer()
@@ -50,5 +50,5 @@ struct MenuBarView: View {
 
 #Preview {
     MenuBarView()
-        .modelContainer(DataManager.previewContainer())
+        .environment(PromptState(context: DataManager.previewContainer().mainContext))
 }
