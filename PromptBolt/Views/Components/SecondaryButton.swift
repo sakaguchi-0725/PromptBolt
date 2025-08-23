@@ -1,8 +1,13 @@
 //
 //  SecondaryButton.swift
+//
 //  PromptBolt
+//  GitHub: https://github.com/sakaguchi-0725/PromptBolt
 //
 //  Created by Kazuma Sakaguchi on 2025/08/22.
+//
+//  Copyright © 2025 Kazuma Sakaguchi.
+//  Licensed under the MIT License.
 //
 
 import SwiftUI
