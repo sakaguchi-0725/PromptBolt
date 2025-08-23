@@ -11,10 +11,12 @@
 //
 
 import SwiftUI
+import AppKit
 import SwiftData
 
 struct MenuBarView: View {
     @Environment(PromptState.self) private var promptState
+    @Environment(\.openWindow) private var openWindow
     
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
@@ -36,14 +38,30 @@ struct MenuBarView: View {
             }
             
             Divider()
+                .padding(.horizontal, -10)
                 .padding(.vertical, 6)
             
-            // TODO
-            SecondaryButton(label: "Dashboard", action: {})
+            SecondaryButton(label: "Dashboard") {
+                activateOrOpenDashboard()
+            }
             
             SecondaryButton(label: "Quit") {
                 NSApplication.shared.terminate(nil)
             }
+        }
+        .padding(10)
+        .frame(maxWidth: 200)
+    }
+    
+    private func activateOrOpenDashboard() {
+        if let dashboardWindow = NSApp.windows.first(where: { window in
+            return window.identifier?.rawValue == "dashboard"
+        }) {
+            dashboardWindow.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
+        } else {
+            openWindow(id: "dashboard")
+            NSApp.activate(ignoringOtherApps: true)
         }
     }
 }

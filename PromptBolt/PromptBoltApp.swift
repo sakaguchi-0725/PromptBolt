@@ -24,7 +24,16 @@ struct PromptBoltApp: App {
     }
 
     var body: some Scene {
-        WindowGroup {
+        MenuBarExtra {
+            MenuBarView()
+                .environment(promptState)
+        } label: {
+            Image("MenuBarIcon")
+                .renderingMode(.template)
+        }
+        .menuBarExtraStyle(.window)
+        
+        WindowGroup(id: "dashboard") {
             DashboardView()
                 .environment(promptState)
         }
