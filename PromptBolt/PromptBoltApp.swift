@@ -15,12 +15,19 @@ import SwiftData
 
 @main
 struct PromptBoltApp: App {
-    let dataManager = DataManager.shared.production
+    private let container: ModelContainer
+    private let promptState: PromptState
+    
+    init() {
+        self.container = DataManager.shared.production
+        self.promptState = .init(context: self.container.mainContext)
+    }
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DashboardView()
+                .environment(promptState)
         }
-        .modelContainer(dataManager)
+        .modelContainer(container)
     }
 }
