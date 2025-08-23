@@ -33,7 +33,7 @@ struct DashboardView: View {
             Group {
                 switch selectedItem {
                 case .general:
-                    Text("General")
+                    General()
                 case .prompts:
                     PromptList()
                 case .settings:
@@ -43,6 +43,7 @@ struct DashboardView: View {
                 }
             }
             .navigationTitle(selectedItem?.rawValue ?? "")
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .padding()
         }
     }
