@@ -12,10 +12,21 @@
 
 import SwiftUI
 import Combine
+import ServiceManagement
 
 final class SettingsManager: ObservableObject {
-    @AppStorage("launchOnStart") var launchOnStart = false
+    @AppStorage("launchOnStart") var launchOnStart = false {
+        didSet { updateLaunchOnStart() }
+    }
     @AppStorage("autoUpdateCheck") var autoUpdateCheck = true
+    
+    private func updateLaunchOnStart() {
+        if launchOnStart {
+            try? SMAppService.mainApp.register()
+        } else {
+            try? SMAppService.mainApp.unregister()
+        }
+    }
     
     static let shared = SettingsManager()
     
