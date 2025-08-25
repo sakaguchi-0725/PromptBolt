@@ -41,13 +41,23 @@ struct MenuBarView: View {
                 .padding(.horizontal, -10)
                 .padding(.vertical, 6)
             
-            SecondaryButton(label: "Dashboard") {
+            Button {
                 activateOrOpenDashboard()
-            }
+            } label: {
+                Text("Dashboard")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.vertical, 6)
+                    .padding(.horizontal, 8)
+            }.buttonStyle(.secondary)
             
-            SecondaryButton(label: "Quit") {
+            Button {
                 NSApplication.shared.terminate(nil)
-            }
+            } label: {
+                Text("Quit")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.vertical, 6)
+                    .padding(.horizontal, 8)
+            }.buttonStyle(.secondary)
         }
         .padding(10)
         .frame(maxWidth: 200)

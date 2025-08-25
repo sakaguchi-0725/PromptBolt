@@ -15,7 +15,13 @@ import SwiftUI
 // MARK: - PromptList
 struct PromptList: View {
     @Environment(PromptState.self) var promptState
+    @State var path = NavigationPath()
     @State var searchText = ""
+    
+    enum PromptPath: Hashable {
+        case create
+        case edit(Prompt)
+    }
     
     private var filterdPrompts: [Prompt] {
         if searchText.isEmpty {
@@ -29,36 +35,52 @@ struct PromptList: View {
     }
     
     var body: some View {
-        VStack {
-            HStack(spacing: 2) {
-                TextInputField(placeholder: "Search prompts", input: $searchText)
+        NavigationStack(path: $path) {
+            VStack {
+                HStack(spacing: 2) {
+                    TextInputField(placeholder: "Search prompts", input: $searchText)
+                    
+                    Spacer()
+                    
+                    Button {
+                        path.append(PromptPath.create)
+                    } label: {
+                        Text("New")
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 12)
+                    }.buttonStyle(.primary)
+                }.padding(.bottom)
                 
-                Spacer()
-                
-                // TODO: implements action
-                PrimaryButton(label: "New", action: {})
-                    .frame(width: 60, height: 33)
-            }.padding(.bottom)
-            
-            if filterdPrompts.isEmpty {
-                VStack(spacing: 8) {
-                    Image(systemName: "doc.text")
-                        .font(.largeTitle)
-                        .foregroundStyle(.secondary)
-                    Text(searchText.isEmpty ? "No prompts available" : "No matching prompts found")
-                        .bold()
-                        .multilineTextAlignment(.center)
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            } else {
-                ScrollView {
-                    LazyVStack(spacing: 10) {
-                        ForEach(filterdPrompts) { prompt in
-                            PromptListItem(prompt: prompt)
+                if filterdPrompts.isEmpty {
+                    VStack(spacing: 8) {
+                        Image(systemName: "doc.text")
+                            .font(.largeTitle)
+                            .foregroundStyle(.secondary)
+                        Text(searchText.isEmpty ? "No prompts available" : "No matching prompts found")
+                            .bold()
+                            .multilineTextAlignment(.center)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else {
+                    ScrollView {
+                        LazyVStack(spacing: 10) {
+                            ForEach(filterdPrompts) { prompt in
+                                PromptListItem(prompt: prompt) {
+                                    path.append(PromptPath.edit(prompt))
+                                }
+                            }
                         }
                     }
+                    .scrollIndicators(.never)
                 }
-                .scrollIndicators(.never)
+            }
+        }
+        .navigationDestination(for: PromptPath.self) { destination in
+            switch destination {
+            case .create:
+                CreatePrompt()
+            case .edit(let prompt):
+                EditPrompt(prompt: prompt)
             }
         }
     }
@@ -67,8 +89,10 @@ struct PromptList: View {
 // MARK: - PromptListItem
 struct PromptListItem: View {
     let prompt: Prompt
+    let onTap: () -> Void
     
     var body: some View {
+        // TODO: タップ可能なCardにして、PromptPath.edit(prompt)を設定
         Card {
             VStack(alignment: .leading, spacing: 10) {
                 HStack {
@@ -83,6 +107,9 @@ struct PromptListItem: View {
                     .lineLimit(3)
                     .frame(height: 50, alignment: .top)
             }
+        }
+        .onTapGesture {
+            onTap()
         }
     }
 }
