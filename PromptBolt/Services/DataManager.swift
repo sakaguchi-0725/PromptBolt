@@ -59,17 +59,17 @@ extension DataManager {
             mainKey: CharacterKey.p.rawValue
         )
         
-        let prompt1 = Prompt(
-            title: "Hello World", 
+        let prompt1 = try! Prompt(
+            title: "Hello World",
             content: "Hello, World!", 
             shortcutKey: sampleShortcut1
         )
-        let prompt2 = Prompt(
-            title: "Sample Text", 
+        let prompt2 = try! Prompt(
+            title: "Sample Text",
             content: "This is a sample text for testing.", 
             shortcutKey: sampleShortcut2
         )
-        let prompt3 = Prompt(
+        let prompt3 = try! Prompt(
             title: "Long Sample", 
             content: "This is a very long sample text that demonstrates how the preview looks with longer content.", 
             shortcutKey: sampleShortcut3

@@ -13,6 +13,17 @@
 import Foundation
 import SwiftData
 
+enum PromptError: LocalizedError {
+    case required(field: String)
+    
+    var errorDescription: String? {
+        switch self {
+        case .required(let field):
+            return "\(field) is required"
+        }
+    }
+}
+
 @Model
 final class Prompt {
     var id: UUID
@@ -21,11 +32,23 @@ final class Prompt {
     var shortcutKey: ShortcutKey
     var createdAt: Date
     
-    init(title: String, content: String, shortcutKey: ShortcutKey) {
+    init(title: String, content: String, shortcutKey: ShortcutKey?) throws {
+        if title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            throw PromptError.required(field: "Title")
+        }
+        
+        if content.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            throw PromptError.required(field: "Content")
+        }
+        
+        if shortcutKey == nil {
+            throw PromptError.required(field: "Shortcut Key")
+        }
+        
         self.id = UUID()
         self.title = title
         self.content = content
-        self.shortcutKey = shortcutKey
+        self.shortcutKey = shortcutKey!
         self.createdAt = Date()
     }
 }
