@@ -14,10 +14,21 @@ import Foundation
 import AppKit
 import HotKey
 
-enum ShortcutError: Error {
+enum ShortcutError: LocalizedError {
     case alreadyRegistered
     case invalidKey
     case notFound
+    
+    var errorDescription: String? {
+        switch self {
+        case .alreadyRegistered:
+            return "This shortcut key is already in use"
+        case .invalidKey:
+            return "Invalid shortcut key combination"
+        case .notFound:
+            return "Shortcut not found"
+        }
+    }
 }
 
 struct ShortcutProvider {
