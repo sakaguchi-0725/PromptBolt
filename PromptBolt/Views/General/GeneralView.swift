@@ -1,5 +1,5 @@
 //
-//  General.swift
+//  GeneralView.swift
 //
 //  PromptBolt
 //  GitHub: https://github.com/sakaguchi-0725/PromptBolt
@@ -12,8 +12,8 @@
 
 import SwiftUI
 
-// MARK: - General
-struct General: View {
+// MARK: - GeneralView
+struct GeneralView: View {
     @StateObject private var settings: SettingsManager = .shared
 
     
@@ -45,6 +45,6 @@ struct GeneralCard: View {
 
 #Preview {
     VStack {
-        General()
+        GeneralView()
     }.padding()
 }

@@ -1,5 +1,5 @@
 //
-//  EditPrompt.swift
+//  EditPromptView.swift
 //
 //  PromptBolt
 //  GitHub: https://github.com/sakaguchi-0725/PromptBolt
@@ -12,7 +12,7 @@
 
 import SwiftUI
 
-struct EditPrompt: View {
+struct EditPromptView: View {
     @Environment(PromptState.self) private var promptState
     @Environment(\.dismiss) private var dismiss
     @State private var title: String
@@ -92,6 +92,6 @@ struct EditPrompt: View {
         )
     )
     
-    EditPrompt(prompt: prompt)
+    EditPromptView(prompt: prompt)
         .environment(PromptState(context: DataManager.previewContainer().mainContext))
 }

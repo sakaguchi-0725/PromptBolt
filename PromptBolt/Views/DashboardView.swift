@@ -33,9 +33,9 @@ struct DashboardView: View {
             Group {
                 switch selectedItem {
                 case .general:
-                    General()
+                    GeneralView()
                 case .prompts:
-                    PromptList()
+                    PromptListView()
                 case .settings:
                     Text("Settings")
                 case .none:

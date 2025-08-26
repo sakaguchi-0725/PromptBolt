@@ -1,5 +1,5 @@
 //
-//  PromptView.swift
+//  PromptListView.swift
 //
 //  PromptBolt
 //  GitHub: https://github.com/sakaguchi-0725/PromptBolt
@@ -13,7 +13,7 @@
 import SwiftUI
 
 // MARK: - PromptList
-struct PromptList: View {
+struct PromptListView: View {
     @Environment(PromptState.self) var promptState
     @State var path = NavigationPath()
     @State var searchText = ""
@@ -78,9 +78,9 @@ struct PromptList: View {
         .navigationDestination(for: PromptPath.self) { destination in
             switch destination {
             case .create:
-                CreatePrompt()
+                CreatePromptView()
             case .edit(let prompt):
-                EditPrompt(prompt: prompt)
+                EditPromptView(prompt: prompt)
             }
         }
     }
@@ -117,7 +117,7 @@ struct PromptListItem: View {
 // MARK: - Preview
 #Preview {
     VStack {
-        PromptList()
+        PromptListView()
             .environment(PromptState(context: DataManager.previewContainer().mainContext))
     }.padding()
 }

@@ -1,5 +1,5 @@
 //
-//  CreatePrompt.swift
+//  CreatePromptView.swift
 //
 //  PromptBolt
 //  GitHub: https://github.com/sakaguchi-0725/PromptBolt
@@ -12,7 +12,7 @@
 
 import SwiftUI
 
-struct CreatePrompt: View {
+struct CreatePromptView: View {
     @Environment(PromptState.self) private var promptState
     @Environment(\.dismiss) private var dismiss
     @State var title = ""
@@ -68,6 +68,6 @@ struct CreatePrompt: View {
 }
 
 #Preview {
-    CreatePrompt()
+    CreatePromptView()
         .environment(PromptState(context: DataManager.previewContainer().mainContext))
 }
