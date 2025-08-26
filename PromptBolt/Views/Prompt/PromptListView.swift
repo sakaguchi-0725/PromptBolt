@@ -90,9 +90,9 @@ struct PromptListView: View {
 struct PromptListItem: View {
     let prompt: Prompt
     let onTap: () -> Void
+    @State private var isHovered = false
     
     var body: some View {
-        // TODO: タップ可能なCardにして、PromptPath.edit(prompt)を設定
         Card {
             VStack(alignment: .leading, spacing: 10) {
                 HStack {
@@ -107,6 +107,18 @@ struct PromptListItem: View {
                     .lineLimit(3)
                     .frame(height: 50, alignment: .top)
             }
+        }
+        .scaleEffect(isHovered ? 1.00 : 0.99)
+        .shadow(
+            color: .black.opacity(isHovered ? 0.15 : 0.05),
+            radius: isHovered ? 8 : 4,
+            x: 0,
+            y: isHovered ? 4 : 2
+        )
+        .animation(.easeOut(duration: 0.2), value: isHovered)
+        .contentShape(Rectangle())
+        .onHover { hovering in
+            isHovered = hovering
         }
         .onTapGesture {
             onTap()
