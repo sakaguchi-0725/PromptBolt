@@ -33,22 +33,47 @@ final class Prompt {
     var createdAt: Date
     
     init(title: String, content: String, shortcutKey: ShortcutKey?) throws {
-        if title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            throw PromptError.required(field: "Title")
-        }
-        
-        if content.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            throw PromptError.required(field: "Content")
-        }
-        
-        if shortcutKey == nil {
-            throw PromptError.required(field: "Shortcut Key")
-        }
+        try Self.validateTitle(title)
+        try Self.validateContent(content)
+        try Self.validateShortcutKey(shortcutKey)
         
         self.id = UUID()
         self.title = title
         self.content = content
         self.shortcutKey = shortcutKey!
         self.createdAt = Date()
+    }
+    
+    func updateTitle(_ newTitle: String) throws {
+        try Self.validateTitle(newTitle)
+        self.title = newTitle
+    }
+    
+    func updateContent(_ newContent: String) throws {
+        try Self.validateContent(newContent)
+        self.content = newContent
+    }
+    
+    func updateShortcutKey(_ newShortcutKey: ShortcutKey?) throws {
+        try Self.validateShortcutKey(newShortcutKey)
+        self.shortcutKey = newShortcutKey!
+    }
+    
+    private static func validateTitle(_ title: String) throws {
+        if title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            throw PromptError.required(field: "Title")
+        }
+    }
+    
+    private static func validateContent(_ content: String) throws {
+        if content.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            throw PromptError.required(field: "Content")
+        }
+    }
+    
+    private static func validateShortcutKey(_ shortcutKey: ShortcutKey?) throws {
+        if shortcutKey == nil {
+            throw PromptError.required(field: "Shortcut Key")
+        }
     }
 }
