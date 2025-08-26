@@ -6,13 +6,30 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C2819AA92E575E68004A0CBA /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = C2819AA82E575E68004A0CBA /* HotKey */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		C2819A172E5593F4004A0CBA /* PromptBolt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PromptBolt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C2C5444F2E59DD410033725D /* Exceptions for "PromptBolt" folder in "PromptBolt" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = C2819A162E5593F4004A0CBA /* PromptBolt */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C2819A192E5593F4004A0CBA /* PromptBolt */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C2C5444F2E59DD410033725D /* Exceptions for "PromptBolt" folder in "PromptBolt" target */,
+			);
 			path = PromptBolt;
 			sourceTree = "<group>";
 		};
@@ -23,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2819AA92E575E68004A0CBA /* HotKey in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +83,7 @@
 			);
 			name = PromptBolt;
 			packageProductDependencies = (
+				C2819AA82E575E68004A0CBA /* HotKey */,
 			);
 			productName = PromptBolt;
 			productReference = C2819A172E5593F4004A0CBA /* PromptBolt.app */;
@@ -94,6 +113,9 @@
 			);
 			mainGroup = C2819A0E2E5593F4004A0CBA;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C2819AA72E575E68004A0CBA /* XCRemoteSwiftPackageReference "HotKey" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C2819A182E5593F4004A0CBA /* Products */;
 			projectDirPath = "";
@@ -258,6 +280,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PromptBolt/Info.plist;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -286,6 +310,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PromptBolt/Info.plist;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -323,6 +349,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C2819AA72E575E68004A0CBA /* XCRemoteSwiftPackageReference "HotKey" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/soffes/HotKey";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C2819AA82E575E68004A0CBA /* HotKey */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2819AA72E575E68004A0CBA /* XCRemoteSwiftPackageReference "HotKey" */;
+			productName = HotKey;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C2819A0F2E5593F4004A0CBA /* Project object */;
 }
