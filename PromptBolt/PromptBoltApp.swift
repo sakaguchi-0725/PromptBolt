@@ -33,10 +33,11 @@ struct PromptBoltApp: App {
         }
         .menuBarExtraStyle(.window)
         
-        WindowGroup(id: "dashboard") {
+        Window("Dashboard", id: "dashboard") {
             DashboardView()
                 .environment(promptState)
         }
         .modelContainer(container)
+        .windowResizability(.contentSize)
     }
 }
