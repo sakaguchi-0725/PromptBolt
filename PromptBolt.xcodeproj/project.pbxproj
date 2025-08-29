@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C2819AA92E575E68004A0CBA /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = C2819AA82E575E68004A0CBA /* HotKey */; };
+		C2C546112E6036440033725D /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = C2C546102E6036440033725D /* Sparkle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2819AA92E575E68004A0CBA /* HotKey in Frameworks */,
+				C2C546112E6036440033725D /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +86,7 @@
 			name = PromptBolt;
 			packageProductDependencies = (
 				C2819AA82E575E68004A0CBA /* HotKey */,
+				C2C546102E6036440033725D /* Sparkle */,
 			);
 			productName = PromptBolt;
 			productReference = C2819A172E5593F4004A0CBA /* PromptBolt.app */;
@@ -115,6 +118,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				C2819AA72E575E68004A0CBA /* XCRemoteSwiftPackageReference "HotKey" */,
+				C2C5460F2E6036440033725D /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C2819A182E5593F4004A0CBA /* Products */;
@@ -359,6 +363,14 @@
 				kind = branch;
 			};
 		};
+		C2C5460F2E6036440033725D /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -366,6 +378,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C2819AA72E575E68004A0CBA /* XCRemoteSwiftPackageReference "HotKey" */;
 			productName = HotKey;
+		};
+		C2C546102E6036440033725D /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2C5460F2E6036440033725D /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
