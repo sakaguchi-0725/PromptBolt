@@ -15,7 +15,6 @@ import SwiftUI
 // MARK: - GeneralView
 struct GeneralView: View {
     @StateObject private var settings: SettingsManager = .shared
-
     
     var body: some View {
         VStack(spacing: 10) {

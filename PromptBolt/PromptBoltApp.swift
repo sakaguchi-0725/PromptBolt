@@ -21,6 +21,7 @@ struct PromptBoltApp: App {
     init() {
         self.container = DataManager.shared.production
         self.promptState = .init(context: self.container.mainContext)
+        _ = UpdateManager.shared
     }
 
     var body: some Scene {
