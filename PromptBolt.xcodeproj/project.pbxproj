@@ -10,20 +10,12 @@
 		C2819AA92E575E68004A0CBA /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = C2819AA82E575E68004A0CBA /* HotKey */; };
 		C2C546112E6036440033725D /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = C2C546102E6036440033725D /* Sparkle */; };
 		C2C5464D2E767D9A0033725D /* CertificateSigningRequest.certSigningRequest in Resources */ = {isa = PBXBuildFile; fileRef = C2C5464C2E767D9A0033725D /* CertificateSigningRequest.certSigningRequest */; };
-		C2C5468E2E76878A0033725D /* PromptBolt.app in Resources */ = {isa = PBXBuildFile; fileRef = C2C5468B2E76878A0033725D /* PromptBolt.app */; };
-		C2C5468F2E76878A0033725D /* ExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2C546892E76878A0033725D /* ExportOptions.plist */; };
-		C2C546902E76878A0033725D /* Packaging.log in Resources */ = {isa = PBXBuildFile; fileRef = C2C5468A2E76878A0033725D /* Packaging.log */; };
-		C2C546912E76878A0033725D /* DistributionSummary.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2C546882E76878A0033725D /* DistributionSummary.plist */; };
 		C2C546932E7689ED0033725D /* appcast.xml in Resources */ = {isa = PBXBuildFile; fileRef = C2C546922E7689ED0033725D /* appcast.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C2819A172E5593F4004A0CBA /* PromptBolt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PromptBolt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C5464C2E767D9A0033725D /* CertificateSigningRequest.certSigningRequest */ = {isa = PBXFileReference; lastKnownFileType = text; path = CertificateSigningRequest.certSigningRequest; sourceTree = "<group>"; };
-		C2C546882E76878A0033725D /* DistributionSummary.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DistributionSummary.plist; sourceTree = "<group>"; };
-		C2C546892E76878A0033725D /* ExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
-		C2C5468A2E76878A0033725D /* Packaging.log */ = {isa = PBXFileReference; lastKnownFileType = text; path = Packaging.log; sourceTree = "<group>"; };
-		C2C5468B2E76878A0033725D /* PromptBolt.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = PromptBolt.app; sourceTree = "<group>"; };
 		C2C546922E7689ED0033725D /* appcast.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,21 +72,9 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C2C5468C2E76878A0033725D /* v1 */ = {
-			isa = PBXGroup;
-			children = (
-				C2C546882E76878A0033725D /* DistributionSummary.plist */,
-				C2C546892E76878A0033725D /* ExportOptions.plist */,
-				C2C5468A2E76878A0033725D /* Packaging.log */,
-				C2C5468B2E76878A0033725D /* PromptBolt.app */,
-			);
-			path = v1;
-			sourceTree = "<group>";
-		};
 		C2C5468D2E76878A0033725D /* Build */ = {
 			isa = PBXGroup;
 			children = (
-				C2C5468C2E76878A0033725D /* v1 */,
 			);
 			path = Build;
 			sourceTree = "<group>";
@@ -171,10 +151,6 @@
 			files = (
 				C2C546932E7689ED0033725D /* appcast.xml in Resources */,
 				C2C5464D2E767D9A0033725D /* CertificateSigningRequest.certSigningRequest in Resources */,
-				C2C5468E2E76878A0033725D /* PromptBolt.app in Resources */,
-				C2C5468F2E76878A0033725D /* ExportOptions.plist in Resources */,
-				C2C546902E76878A0033725D /* Packaging.log in Resources */,
-				C2C546912E76878A0033725D /* DistributionSummary.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +296,7 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "Apple Development: kzmsan63@gmail.com (UC6ZXFF6J9)";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = LCBL4L4PQ6;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -335,7 +311,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaz.PromptBolt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -354,7 +330,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application: Kazuma Sakaguchi (LCBL4L4PQ6)";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = LCBL4L4PQ6;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -369,7 +345,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaz.PromptBolt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

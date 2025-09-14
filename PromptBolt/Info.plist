@@ -5,7 +5,7 @@
 	<key>LSUIElement</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>https://github.com/sakaguchi-0725/PromptBolt/blob/main/appcast.xml</string>
+	<string>https://raw.githubusercontent.com/sakaguchi-0725/PromptBolt/main/appcast.xml</string>
 	<key>SUEnableInstallerLauncherService</key>
 	<true/>
 	<key>SUAutomaticallyUpdate</key>
