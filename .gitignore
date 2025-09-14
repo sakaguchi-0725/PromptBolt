@@ -21,3 +21,29 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+# Build outputs and distribution
+Build/
+*.app
+*.dmg
+*.zip
+*.pkg
+*.xcarchive
+
+# Export artifacts
+ExportOptions.plist
+DistributionSummary.plist
+Packaging.log
+
+# Certificates and signing (SECURITY - Never commit)
+*.certSigningRequest
+*.cer
+*.p12
+*.mobileprovision
+*.provisionprofile
+sparkle_private_key
+*.privatekey
+
+# Temporary files
+*.tmp
+*.temp
