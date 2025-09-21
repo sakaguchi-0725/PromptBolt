@@ -10,7 +10,11 @@
 	<true/>
 	<key>SUAutomaticallyUpdate</key>
 	<false/>
+	<key>SUAllowsAutomaticUpdates</key>
+	<false/>
 	<key>SUPublicEDKey</key>
 	<string>upQHmt++BbdiDL0UtRI8R/SdT0ZMPWMcS4YHDzB3Abw=</string>
+	<key>SUScheduledCheckInterval</key>
+	<integer>86400</integer>
 </dict>
 </plist>

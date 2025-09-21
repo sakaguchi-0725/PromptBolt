@@ -50,8 +50,11 @@ struct DashboardView: View {
 }
 
 #Preview {
+    let updateService = UpdateService(autoUpdateEnabled: false, notificationService: NotificationService())
     let promptState = PromptState(context: DataManager.previewContainer().mainContext)
+    let settingsState = SettingsState(updateService: updateService)
     
     DashboardView()
         .environment(promptState)
+        .environment(settingsState)
 }

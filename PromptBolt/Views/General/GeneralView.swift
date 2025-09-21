@@ -14,13 +14,32 @@ import SwiftUI
 
 // MARK: - GeneralView
 struct GeneralView: View {
-    @StateObject private var settings: SettingsManager = .shared
+    @Environment(SettingsState.self) private var settingsState
     
     var body: some View {
-        VStack(spacing: 10) {
-            GeneralCard(title: "Launch on start", isOn: $settings.launchOnStart)
+        @Bindable var bindableSettings = settingsState
+        
+        VStack (spacing: 20) {
+            HStack {
+                Text("Current version")
+                Spacer()
+                Text(settingsState.currentVersion)
+            }
+            .padding(.horizontal, 20)
+            .padding(.vertical, 10)
+            .background(Color(.windowBackgroundColor))
+            .overlay(
+                Divider(),
+                alignment: .bottom
+            )
+            .padding(.horizontal, -20)
+            .padding(.top, -20)
             
-            GeneralCard(title: "Auto update check", isOn: $settings.autoUpdateCheck)
+            VStack(spacing: 10) {
+                GeneralCard(title: "Launch on start", isOn: $bindableSettings.launchOnStart)
+                
+                GeneralCard(title: "Auto update check", isOn: $bindableSettings.autoUpdateCheck)
+            }
         }
     }
 }
@@ -28,14 +47,14 @@ struct GeneralView: View {
 // MARK: - GeneralCard
 struct GeneralCard: View {
     let title: String
-    let isOn: Binding<Bool>
+    @Binding var isOn: Bool
     
     var body: some View {
         Card {
             HStack {
                 Text(title)
                 Spacer()
-                Toggle("", isOn: isOn)
+                Toggle("", isOn: $isOn)
                     .toggleStyle(SwitchToggleStyle())
             }
         }
@@ -43,7 +62,10 @@ struct GeneralCard: View {
 }
 
 #Preview {
+    let updateService = UpdateService(autoUpdateEnabled: false, notificationService: NotificationService())
+    
     VStack {
         GeneralView()
+            .environment(SettingsState(updateService: updateService))
     }.padding()
 }
