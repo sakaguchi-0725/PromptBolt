@@ -15,19 +15,28 @@ import SwiftData
 
 @main
 struct PromptBoltApp: App {
-    private let container: ModelContainer
+    private var container: ModelContainer
     private let promptState: PromptState
+    private let settingsState: SettingsState
     
     init() {
         self.container = DataManager.shared.production
+        let settingsManager = SettingsManager.shared
+        let notificationService = NotificationService()
+        let updateService = UpdateService(
+            autoUpdateEnabled: settingsManager.autoUpdateCheck,
+            notificationService: notificationService
+        )
+        
         self.promptState = .init(context: self.container.mainContext)
-        _ = UpdateManager.shared
+        self.settingsState = .init(settingsManager: settingsManager, updateService: updateService)
     }
 
     var body: some Scene {
         MenuBarExtra {
             MenuBarView()
                 .environment(promptState)
+                .environment(settingsState)
         } label: {
             Image("MenuBarIcon")
                 .renderingMode(.template)
@@ -37,6 +46,7 @@ struct PromptBoltApp: App {
         Window("Dashboard", id: "dashboard") {
             DashboardView()
                 .environment(promptState)
+                .environment(settingsState)
         }
         .modelContainer(container)
         .windowResizability(.contentSize)

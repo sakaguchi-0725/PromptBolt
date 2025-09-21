@@ -16,8 +16,8 @@ import SwiftData
 
 struct MenuBarView: View {
     @Environment(PromptState.self) private var promptState
+    @Environment(SettingsState.self) private var settingsState
     @Environment(\.openWindow) private var openWindow
-    @StateObject private var updateManager: UpdateManager = .shared
     
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
@@ -52,12 +52,20 @@ struct MenuBarView: View {
             }.buttonStyle(.secondary)
             
             Button {
-                updateManager.checkForUpdates()
+                settingsState.checkForUpdates()
             } label: {
-                Text("Check for updates...")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.vertical, 6)
-                    .padding(.horizontal, 8)
+                HStack {
+                    if settingsState.isUpdateAvailable {
+                        Image(systemName: "exclamationmark.circle")
+                        Text("Download update")
+                    } else {
+                        Text("Check for updates...")
+                    }
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.vertical, 6)
+                .padding(.horizontal, 8)
             }.buttonStyle(.secondary)
             
             Button {
@@ -87,6 +95,10 @@ struct MenuBarView: View {
 }
 
 #Preview {
+    let notificationService = NotificationService()
+    let updateService = UpdateService(autoUpdateEnabled: false, notificationService: notificationService)
+    
     MenuBarView()
         .environment(PromptState(context: DataManager.previewContainer().mainContext))
+        .environment(SettingsState(updateService: updateService))
 }
