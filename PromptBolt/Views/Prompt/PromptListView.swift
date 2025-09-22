@@ -99,6 +99,19 @@ struct PromptListItem: View {
                     Text(prompt.title)
                         .font(.headline)
                     
+                    Text(prompt.shortcutKey.displayString)
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 3)
+                        .background(Color(.quaternarySystemFill))
+                        .foregroundColor(.primary)
+                        .clipShape(RoundedRectangle(cornerRadius: 4))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 4)
+                                .stroke(Color(.separatorColor), lineWidth: 0.5)
+                        )
+                    
                     Spacer()
                 }
                 
