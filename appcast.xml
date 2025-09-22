@@ -3,12 +3,12 @@
     <channel>
         <title>PromptBolt</title>
         <item>
-            <title>1.0.0</title>
-            <pubDate>Sun, 21 Sep 2025 18:04:54 +0900</pubDate>
-            <sparkle:version>1.0.0</sparkle:version>
-            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+            <title>1.0.1</title>
+            <pubDate>Mon, 22 Sep 2025 14:11:45 +0900</pubDate>
+            <sparkle:version>1.0.1</sparkle:version>
+            <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/sakaguchi-0725/PromptBolt/releases/download/v1.0.0/PromptBolt.dmg" length="2701464" type="application/octet-stream" sparkle:edSignature="hXNBMl/xnnwAjfFTqQVUbZZL+Mr3b4Fx3gRzZozY4A2Ntab67GibXu1miGiYua3UsmJrGoyi+OynfRw6OBofDA=="/>
+            <enclosure url="https://github.com/sakaguchi-0725/PromptBolt/releases/download/v1.0.1/PromptBolt.dmg" length="2704521" type="application/octet-stream" sparkle:edSignature="ekoAjUYoA+zdwX7UTsS92oBGTZaZpl+7kH0CF109h+nHOft/j4BTnv/nRNY4oDFMhPujlbwdM36EsVG6dHErBg=="/>
         </item>
     </channel>
 </rss>
