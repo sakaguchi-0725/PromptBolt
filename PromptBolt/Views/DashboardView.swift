@@ -18,7 +18,6 @@ struct DashboardView: View {
     enum SidebarItem: String, CaseIterable, Identifiable {
         case general = "General"
         case prompts = "Prompts"
-        case settings = "Settings"
         
         var id: String { self.rawValue }
     }
@@ -36,8 +35,6 @@ struct DashboardView: View {
                     GeneralView()
                 case .prompts:
                     PromptListView()
-                case .settings:
-                    Text("Settings")
                 case .none:
                     EmptyView()
                 }
